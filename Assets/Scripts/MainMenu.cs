@@ -22,8 +22,9 @@ public class MainMenu : MonoBehaviour {
 
     public void PlayGame() {
         PlayerPrefs.SetString("playerName", playerName.ToString());
-		SceneManager.LoadScene("Level 1");
-	}
+        SceneManager.LoadScene("Level 1");
+        PlayerScore.playerScore = 0;
+    }
 
     public void EnterName() {
         instructionsMenuObj.SetActive(false);

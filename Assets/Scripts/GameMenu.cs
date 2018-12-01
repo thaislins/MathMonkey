@@ -47,4 +47,9 @@ public class GameMenu : MonoBehaviour {
         PlayerLife.countLives = 0;
         SceneManager.LoadScene("MainMenu");
     }
+
+    public void GoToNextLevel() {
+        PlayerLife.mainAudio.Play();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
 }

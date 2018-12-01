@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WInGame : MonoBehaviour {
+public class WinGame : MonoBehaviour {
 
     public GameObject character;
     PlayerController playerController;
     public GameObject playerUI;
     public GameObject winUI;
     public AudioClip winSound;
+    public bool isLastPhase;
 
     // Use this for initialization
 	void Start () {
@@ -27,7 +28,7 @@ public class WInGame : MonoBehaviour {
     }
 
     IEnumerator WalkAway() {
-        ScoreController.AppendScore();
+        if (isLastPhase) ScoreController.AppendScore();
         playerController.myAnim.SetTrigger("Win");
         yield return new WaitForSeconds(1.5f);
         character.gameObject.SetActive(false);
