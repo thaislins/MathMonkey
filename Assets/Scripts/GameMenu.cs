@@ -7,16 +7,23 @@ public class GameMenu : MonoBehaviour {
 
     public GameObject playerUI;
     public GameObject pauseUI;
+    public GameObject instructionsUI;
 
 	// Use this for initialization
 	void Start () {
-		
-	}
+        instructionsUI.SetActive(true);
+        Time.timeScale = 0;
+    }
 	
 	// Update is called once per frame
 	void Update () {
 		
 	}
+
+    public void Close() {
+        instructionsUI.SetActive(false);
+        Time.timeScale = 1.0f;
+    }
 
     public void PauseGame() {
         PlayerLife.mainAudio.Pause();
@@ -46,10 +53,5 @@ public class GameMenu : MonoBehaviour {
         PlayerLife.lives = 0;
         PlayerLife.countLives = 0;
         SceneManager.LoadScene("MainMenu");
-    }
-
-    public void GoToNextLevel() {
-        PlayerLife.mainAudio.Play();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
